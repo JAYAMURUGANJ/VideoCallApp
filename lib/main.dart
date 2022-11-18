@@ -1,31 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:tringtring/meething_webveiw.dart';
-import 'navigator.dart';
+import 'package:tringtring/utils/route_handler.dart';
 
-void main() => runApp(const MyApp());
-
-/// The route configuration.
-final GoRouter _router = GoRouter(
-  routes: <RouteBase>[
-    GoRoute(
-      path: '/',
-      builder: (BuildContext context, GoRouterState state) {
-        return NavigationScreen();
-      },
-      routes: <RouteBase>[
-        GoRoute(
-          path: ':meetlink',
-          builder: (BuildContext context, GoRouterState state) {
-            return MeetingWebView(
-              meetingUrl: state.params['meetlink']!,
-            );
-          },
-        ),
-      ],
-    ),
-  ],
-);
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -53,9 +31,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white),
       ),
       debugShowCheckedModeBanner: false,
-      routeInformationProvider: _router.routeInformationProvider,
-      routeInformationParser: _router.routeInformationParser,
-      routerDelegate: _router.routerDelegate,
+      routeInformationProvider: MyRouter().router.routeInformationProvider,
+      routeInformationParser: MyRouter().router.routeInformationParser,
+      routerDelegate: MyRouter().router.routerDelegate,
     );
   }
 }

@@ -1,11 +1,7 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
-
-import 'package:tringtring/meeting_schedule.dart';
-
-import 'home_screen.dart';
 import 'join_meeting_screen.dart';
+import 'meeting_schedule.dart';
 
 class NavigationScreen extends StatefulWidget {
   int currentIndex;
@@ -27,7 +23,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   void initState() {
-    _pages.add(const HomeScreen());
     _pages.add(const ScheduleMeeting());
     _pages.add(const JoinMeeting());
     super.initState();
@@ -63,8 +58,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 });
               },
               items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-                BottomNavigationBarItem(icon: Icon(Icons.whatsapp), label: ''),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.whatsapp), label: 'CreateMeet'),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.video_call), label: 'JoinMeet')
               ],
@@ -72,17 +67,17 @@ class _NavigationScreenState extends State<NavigationScreen> {
           ),
         ),
       ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FloatingActionButton(
-          child: const Icon(Icons.whatsapp),
-          onPressed: () => setState(() {
-            widget.currentIndex = 1;
-          }),
-        ),
-      ),
+      // floatingActionButtonLocation:
+      //     FloatingActionButtonLocation.miniStartDocked,
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.all(8.0),
+      //   child: FloatingActionButton(
+      //     child: const Icon(Icons.whatsapp),
+      //     onPressed: () => setState(() {
+      //       widget.currentIndex = 0;
+      //     }),
+      //   ),
+      // ),
     );
   }
 }

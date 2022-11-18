@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'meeting_handler.dart';
-import 'validation.dart';
+
+import '../utils/meeting_handler.dart';
+import '../utils/validation.dart';
 
 class ScheduleMeeting extends StatefulWidget {
   const ScheduleMeeting({Key? key}) : super(key: key);
