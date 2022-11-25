@@ -28,6 +28,13 @@ String fetchScheduledMeetingUrl(
   return 'meet.jit.si/$encodedMeetingCredentials';
 }
 
+String fetchScheduledMeetingKey(
+    String groupChatId, String date, String time, String duration) {
+  String meetingCredentials = '$groupChatId-$date-$time-$duration';
+  String encodedMeetingCredentials = stringToBase64.encode(meetingCredentials);
+  return encodedMeetingCredentials;
+}
+
 Map fetchDetailsFromEncodedScheduledMeetingUrl(String url) {
   String decodedCredentials = (stringToBase64.decode(url.split('/')[1]));
   List details = decodedCredentials.split('-');

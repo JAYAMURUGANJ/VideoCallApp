@@ -16,6 +16,7 @@ class _MeetingWebViewState extends State<MeetingWebView> {
   void initState() {
     super.initState();
     // Enable virtual display.
+    print(widget.meetingUrl);
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
   }
 
